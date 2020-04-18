@@ -1,0 +1,40 @@
+Arguments: 
+  /Users/dayanandgupta/.nvm/versions/node/v12.16.1/bin/node /Users/dayanandgupta/.yarn/bin/yarn.js add express
+
+PATH: 
+  /Users/dayanandgupta/.nvm/versions/node/v12.16.1/bin:/Users/dayanandgupta/.yarn/bin:/Users/dayanandgupta/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dayanandgupta/.nvm/versions/node/v12.16.1/bin:/Users/dayanandgupta/.yarn/bin:/Users/dayanandgupta/.config/yarn/global/node_modules/.bin
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/express: tunneling socket could not be established, statusCode=403
+      at ClientRequest.onConnect (/Users/dayanandgupta/.yarn/lib/cli.js:152202:19)
+      at Object.onceWrapper (events.js:418:26)
+      at ClientRequest.emit (events.js:311:20)
+      at Socket.socketOnData (_http_client.js:510:11)
+      at Socket.emit (events.js:311:20)
+      at addChunk (_stream_readable.js:294:12)
+      at readableAddChunk (_stream_readable.js:275:11)
+      at Socket.Readable.push (_stream_readable.js:209:10)
+      at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+
+npm manifest: 
+  {
+    "name": "test-apr-15",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
