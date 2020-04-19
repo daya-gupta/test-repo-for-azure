@@ -172,7 +172,7 @@ const dbConfig = {
 };
 const prodUrl = 'mongodb://test-cosmos-1:bzRmqiwJi3pLAa7b2V4oA9qBuVd8FNwW2FtmWQi5EtISlo1nmxwd5IQAauWtYlCLM5Fs8UHITtjziFYZ2fkmlQ==@test-cosmos-1.mongo.cosmos.azure.com:10255/?ssl=true&appName=@test-cosmos-1@';
 const localUrl = `mongodb://${dbConfig.uri}:${dbConfig.port}/${dbConfig.name}`;
-const url = process.env.environment === 'production' ? prodUrl : localUrl;
+const url = process.env.environment !== 'production' ? prodUrl : localUrl;
 let db = null;
 mongoose.connect(url, dbConfig.options)
   .then(()=> {
