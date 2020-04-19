@@ -12,7 +12,7 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('hello there 3 !!');
+  res.send('hello there 4 !!');
 });
 
 // app.get('/getSampleData', (req, res) => {
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 //   // res.send('vivekanand gupta');
 // });
 
-// app.use(express.static(path.resolve(__dirname, 'build')));
+app.use(express.static(path.resolve(__dirname, 'build')));
 // app.use(express.static('build'));
 
 app.get('/index', (req, res) => {
