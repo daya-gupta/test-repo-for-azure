@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 // app.use(express.static('build'));
 
 app.get('/index', (req, res) => {
-  res.sendFile('build/index.html', {root: __dirname});
+  res.sendFile('index.html', {root: __dirname});
 });
 
 // {"url":"/company/AUBANK/","id":1274092,"name":"AU Small Finance Bank Ltd","checked":false},
