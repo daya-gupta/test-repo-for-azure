@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 
 const express = require('express');
 
@@ -10,7 +11,7 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('hello there!!');
+  res.send('hello there 2 !!');
 });
 
 // app.get('/getSampleData', (req, res) => {
@@ -23,6 +24,9 @@ app.get('/', (req, res) => {
 //   // res.json(testObj);
 //   // res.send('vivekanand gupta');
 // });
+
+app.use(express.static(path.resolve(__dirname, 'build')));
+app.use(express.static('build'));
 
 app.get('/index', (req, res) => {
   res.sendFile('build/index.html', {root: __dirname});
