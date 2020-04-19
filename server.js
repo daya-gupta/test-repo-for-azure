@@ -13,12 +13,23 @@ app.get('/', (req, res) => {
   res.send('hello there!!');
 });
 
+// app.get('/getSampleData', (req, res) => {
+//   // const testObj = {
+//   //   name: 'dayanand',
+//   //   company: 'Altran'
+//   // };
+//   res.setHeader('Content-Type', 'application/json');
+//   res.send(JSON.stringify({key:"value"}));
+//   // res.json(testObj);
+//   // res.send('vivekanand gupta');
+// });
+
 app.get('/index', (req, res) => {
-  res.sendFile('index.html', {root: __dirname});
+  res.sendFile('build/index.html', {root: __dirname});
 });
 
 app.get('/watchlist', (req, res) => {
-  res.sendFile('watchlist.html', {root: __dirname});
+  res.sendFile('build/watchlist.html', {root: __dirname});
 });
 
 app.listen(PORT, HOST);
