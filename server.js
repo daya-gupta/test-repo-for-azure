@@ -12,7 +12,7 @@ const HOST = '0.0.0.0';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('hello there 2 !!');
+  res.send('hello there 3 !!');
 });
 
 // app.get('/getSampleData', (req, res) => {
@@ -30,40 +30,36 @@ app.use(express.static(path.resolve(__dirname, 'build')));
 app.use(express.static('build'));
 
 app.get('/index', (req, res) => {
-  res.sendFile('build/index.html', {root: __dirname});
-});
-
-app.get('/watchlist', (req, res) => {
-  res.sendFile('build/watchlist.html', {root: __dirname});
+  res.sendFile('index.html', {root: __dirname});
 });
 
 // {"url":"/company/AUBANK/","id":1274092,"name":"AU Small Finance Bank Ltd","checked":false},
 // {"url":"/company/ALKEM/consolidated/","id":1273171,"name":"Alkem Laboratories Ltd"},
 // {"url":"/company/DMART/consolidated/","id":1273670,"name":"Avenue Supermarts Ltd"}
 
-app.get('/consolidatedData', (req, res) => {
-  const url = req.query.url;
-  try {
-    https.get(`https://www.screener.in/${url}`, (resp) => {
-      // res.type('string');
-      let data = '';
+// app.get('/consolidatedData', (req, res) => {
+//   const url = req.query.url;
+//   try {
+//     https.get(`https://www.screener.in/${url}`, (resp) => {
+//       // res.type('string');
+//       let data = '';
 
-      resp.on('data', (chunk) => {
-          data += chunk;
-      });
+//       resp.on('data', (chunk) => {
+//           data += chunk;
+//       });
 
-      resp.on('end', () => {
-          res.send(data);
-      });
+//       resp.on('end', () => {
+//           res.send(data);
+//       });
 
-    }).on("error", (err) => {
-        console.log("Error: " + err.message);
-    });
-  }
-  catch (e) {
-    res.status(500).send('Invalid request');
-  }
-})
+//     }).on("error", (err) => {
+//         console.log("Error: " + err.message);
+//     });
+//   }
+//   catch (e) {
+//     res.status(500).send('Invalid request');
+//   }
+// })
 
 app.get('/searchCompany', (req, res) => {
   const data = req.query.data;
@@ -84,29 +80,29 @@ app.get('/searchCompany', (req, res) => {
 })
 
 
-app.get('/historicalData', (req, res) => {
-  const companyId = req.query.companyId;
-  const duration = req.query.duration || 356;
-  // https.get(`https://www.screener.in/api/2/company/${companyId}/prices/?days=${duration}`, (resp) => {
-  try {
-    https.get(`https://www.screener.in/api/company/${companyId}/chart/?q=Price-Volume&days=${duration}`, (resp) => {
-        let data = '';
+// app.get('/historicalData', (req, res) => {
+//   const companyId = req.query.companyId;
+//   const duration = req.query.duration || 356;
+//   // https.get(`https://www.screener.in/api/2/company/${companyId}/prices/?days=${duration}`, (resp) => {
+//   try {
+//     https.get(`https://www.screener.in/api/company/${companyId}/chart/?q=Price-Volume&days=${duration}`, (resp) => {
+//         let data = '';
 
-        resp.on('data', (chunk) => {
-            data += chunk;
-        });
+//         resp.on('data', (chunk) => {
+//             data += chunk;
+//         });
 
-        resp.on('end', () => {
-            res.send(JSON.parse(data));
-        });
+//         resp.on('end', () => {
+//             res.send(JSON.parse(data));
+//         });
 
-        }).on("error", (err) => {
-        console.log("Error: " + err.message);
-    });
-  } catch (e) {
-    res.status(500).send('Invalid request');
-  }
-})
+//         }).on("error", (err) => {
+//         console.log("Error: " + err.message);
+//     });
+//   } catch (e) {
+//     res.status(500).send('Invalid request');
+//   }
+// })
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
